@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/public/assets/styles.css" rel="stylesheet" type="text/css" />
+
+    <title></title>
+  </head>
+  <body>
+    <h1>ROUND <%= round%></h1>
+
+    <% if (gameType === "single") { %>
+    <h2><%= players[0].name %></h2>
+    <h2><%= players[0].points%></h2>
+    <form action="/game/play-round" method="post">
+      <button type="submit" name="p1Choice" value="rock">Rock</button>
+      <button type="submit" name="p1Choice" value="paper">Paper</button>
+      <button type="submit" name="p1Choice" value="scissors">Scissors</button>
+    </form>
+    <% } else { %>
+    <h2><%= players[0].name %> <%= players[0].points %></h2>
+
+    <h2><%= players[1].name %> <%= players[1].points %></h2>
+
+    <% }%>
+  </body>
+</html>
