@@ -37,6 +37,16 @@ router.post("/play-round", (req, res) => {
   });
 });
 
+// router.get("/end", (req, res) => {
+//   const game = req.app.locals.game;
+
+//   res.render("end", {
+//     round: game.round,
+//     players: game.players,
+//     gameType: game.gameType,
+//   });
+// });
+
 router.get("/", (req, res) => {
   req.query.player === "one" ? res.render("single") : res.render("multi");
 });

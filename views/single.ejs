@@ -8,10 +8,17 @@
     <title></title>
   </head>
   <body>
-    <h1>Please enter your name</h1>
-    <form action="/game/start" method="post">
+    <h1 class="page-title">Please enter your name</h1>
+
+    <form action="/game/start" method="post" class="center-container">
       <p>
-        Player 1: <input id="player1-name-textbox" type="text" name="player1" />
+        Player 1:
+        <input
+          id="player1-name-textbox"
+          type="text"
+          name="player1"
+          placeholder="Player 1"
+        />
       </p>
       <input id="game-type" value="single" name="gameType" hidden />
       <button id="names-submit" type="submit" value="Submit">Submit</button>

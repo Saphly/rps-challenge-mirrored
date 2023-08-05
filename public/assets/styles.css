@@ -2,8 +2,46 @@
   background-color: #ffe5ec;
 }
 
+.page-title {
+  text-align: center;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-container {
+  display: flex;
+  padding: 0px 2em;
+}
+
+.p1-container {
+  width: 50%;
+  border-right: solid 1px #2c5777;
+  margin-right: 1em;
+}
+
+input {
+  border: solid 1px #ff99b4;
+  background-color: #ffccd9;
+  border-radius: 5px;
+  padding: 8px 4px;
+}
+
+input:focus {
+  background-color: #ffccd9;
+}
+
+label.rps-choice-img img {
+  width: 3em;
+}
+
 /* CSS from https://getcssscan.com/css-buttons-examples */
 button {
+  margin: 1em 0;
   background-color: #e1ecf4;
   border-radius: 3px;
   border: 1px solid #7aa7c7;
@@ -12,12 +50,12 @@ button {
   color: #39739d;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
-    sans-serif;
+  /* font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+    sans-serif; */
   font-size: 13px;
   font-weight: 400;
   line-height: 1.15385;
-  margin: 0;
+  /* margin: 0; */
   outline: none;
   padding: 8px 0.8em;
   position: relative;

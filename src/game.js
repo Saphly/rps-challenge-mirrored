@@ -22,14 +22,21 @@ class Game {
 
   botChoice() {
     const randIndex = Math.floor(Math.random() * 3);
-    console.log("randIndex: ", randIndex);
+
     return this.choices[randIndex];
   }
 
   play(p1Choice, p2Choice) {
     const player1Choice = p1Choice.toLowerCase();
-    const player2Choice = p2Choice ? p2Choice.toLowerCase() : this.botChoice();
-
+    const player2Choice =
+      this.gameType === "multi" ? p2Choice.toLowerCase() : this.botChoice();
+    // console.log(
+    //   "player1Choice: ",
+    //   player1Choice,
+    //   `\n`,
+    //   "player2Choice: ",
+    //   player2Choice
+    // );
     if (player1Choice === player2Choice) return;
 
     if (player1Choice === "rock") {

@@ -7,10 +7,68 @@
 
     <title></title>
   </head>
-  <body>
-    <h1>ROUND <%= round%></h1>
 
-    <% if (gameType === "single") { %>
+  <body>
+    <form action="/game/play-round" method="post">
+      <h1 class="page-title">ROUND <%= round%></h1>
+
+      <div class="play-container">
+        <div class="p1-container">
+          <h2><%= players[0].name %></h2>
+          <h2><%= players[0].points%></h2>
+
+          <input type="radio" name="p1Choice" value="rock" checked /><label
+            for="rock"
+            class="rps-choice-img"
+            ><img src="../public/images/rock.png"
+          /></label>
+
+          <input type="radio" name="p1Choice" value="paper" /><label
+            for="paper"
+            class="rps-choice-img"
+            ><img src="../public/images/paper.png"
+          /></label>
+
+          <input type="radio" name="p1Choice" value="scissors" /><label
+            for="scissors"
+            class="rps-choice-img"
+            ><img src="../public/images/scissors.png"
+          /></label>
+        </div>
+
+        <div class="p2-container">
+          <h2><%= players[1].name %></h2>
+          <h2><%= players[1].points %></h2>
+          <% if (gameType === "multi") { %>
+          <input type="radio" name="p2Choice" value="rock" checked /><label
+            for="rock"
+            class="rps-choice-img"
+            ><img src="../public/images/rock.png"
+          /></label>
+
+          <input type="radio" name="p2Choice" value="paper" /><label
+            for="paper"
+            class="rps-choice-img"
+            ><img src="../public/images/paper.png"
+          /></label>
+
+          <input type="radio" name="p2Choice" value="scissors" /><label
+            for="scissors"
+            class="rps-choice-img"
+            ><img src="../public/images/scissors.png"
+          /></label>
+          <% }%>
+        </div>
+      </div>
+
+      <div class="center-container">
+        <button type="submit" style="width: 50%">Play!</button>
+      </div>
+    </form>
+  </body>
+</html>
+
+<!-- <% if (gameType === "single") { %>
     <h2><%= players[0].name %></h2>
     <h2><%= players[0].points%></h2>
     <form action="/game/play-round" method="post">
@@ -23,6 +81,4 @@
 
     <h2><%= players[1].name %> <%= players[1].points %></h2>
 
-    <% }%>
-  </body>
-</html>
+    <% }%> -->
