@@ -34,6 +34,18 @@
             class="rps-choice-img"
             ><img src="../public/images/scissors.png"
           /></label>
+
+          <input type="radio" name="p1Choice" value="spock" /><label
+            for="spock"
+            class="rps-choice-img"
+            ><img src="../public/images/spock.png"
+          /></label>
+
+          <input type="radio" name="p1Choice" value="lizard" /><label
+            for="lizard"
+            class="rps-choice-img"
+            ><img src="../public/images/lizard.png"
+          /></label>
         </div>
 
         <div class="p2-container">
@@ -57,6 +69,19 @@
             class="rps-choice-img"
             ><img src="../public/images/scissors.png"
           /></label>
+
+          <input type="radio" name="p2Choice" value="spock" /><label
+            for="spock"
+            class="rps-choice-img"
+            ><img src="../public/images/spock.png"
+          /></label>
+
+          <input type="radio" name="p2Choice" value="lizard" /><label
+            for="lizard"
+            class="rps-choice-img"
+            ><img src="../public/images/lizard.png"
+          /></label>
+
           <% }%>
         </div>
       </div>
@@ -70,18 +95,3 @@
     </form>
   </body>
 </html>
-
-<!-- <% if (gameType === "single") { %>
-    <h2><%= players[0].name %></h2>
-    <h2><%= players[0].points%></h2>
-    <form action="/game/play-round" method="post">
-      <button type="submit" name="p1Choice" value="rock">Rock</button>
-      <button type="submit" name="p1Choice" value="paper">Paper</button>
-      <button type="submit" name="p1Choice" value="scissors">Scissors</button>
-    </form>
-    <% } else { %>
-    <h2><%= players[0].name %> <%= players[0].points %></h2>
-
-    <h2><%= players[1].name %> <%= players[1].points %></h2>
-
-    <% }%> -->

@@ -5,7 +5,7 @@ class Game {
     this.gameType = gameType;
     this.round = 1;
     this.players = names.map((name) => new playerClass(name));
-    this.choices = ["rock", "paper", "scissors"];
+    this.choices = ["rock", "paper", "scissors", "spock", "lizard"];
   }
 
   player1() {
@@ -31,7 +31,7 @@ class Game {
   }
 
   botChoice() {
-    const randIndex = Math.floor(Math.random() * 3);
+    const randIndex = Math.floor(Math.random() * 5);
 
     return this.choices[randIndex];
   }
@@ -44,7 +44,7 @@ class Game {
     if (player1Choice === player2Choice) return;
 
     if (player1Choice === "rock") {
-      if (player2Choice === "scissors") {
+      if (player2Choice === "scissors" || player2Choice === "lizard") {
         this.player1().addPoint();
         return;
       }
@@ -52,7 +52,7 @@ class Game {
     }
 
     if (player1Choice === "paper") {
-      if (player2Choice === "rock") {
+      if (player2Choice === "rock" || player2Choice === "spock") {
         this.player1().addPoint();
         return;
       }
@@ -61,7 +61,25 @@ class Game {
     }
 
     if (player1Choice === "scissors") {
-      if (player2Choice === "paper") {
+      if (player2Choice === "paper" || player2Choice === "lizard") {
+        this.player1().addPoint();
+        return;
+      }
+
+      this.player2().addPoint();
+    }
+
+    if (player1Choice === "spock") {
+      if (player2Choice === "rock" || player2Choice === "scissors") {
+        this.player1().addPoint();
+        return;
+      }
+
+      this.player2().addPoint();
+    }
+
+    if (player1Choice === "lizard") {
+      if (player2Choice === "paper" || player2Choice === "spock") {
         this.player1().addPoint();
         return;
       }
