@@ -37,15 +37,16 @@ router.post("/play-round", (req, res) => {
   });
 });
 
-// router.get("/end", (req, res) => {
-//   const game = req.app.locals.game;
+router.post("/end", (req, res) => {
+  const game = req.app.locals.game;
 
-//   res.render("end", {
-//     round: game.round,
-//     players: game.players,
-//     gameType: game.gameType,
-//   });
-// });
+  const winner = game.winner();
+
+  res.render("end", {
+    winner: winner.name,
+    points: winner.points,
+  });
+});
 
 router.get("/", (req, res) => {
   req.query.player === "one" ? res.render("single") : res.render("multi");

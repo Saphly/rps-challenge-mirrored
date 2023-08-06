@@ -3,7 +3,7 @@ import Player from "./player.js";
 class Game {
   setup(names, gameType, playerClass = Player) {
     this.gameType = gameType;
-    this.round = 0;
+    this.round = 1;
     this.players = names.map((name) => new playerClass(name));
     this.choices = ["rock", "paper", "scissors"];
   }
@@ -14,6 +14,16 @@ class Game {
 
   player2() {
     return this.players[1];
+  }
+
+  winner() {
+    const p1Points = this.player1().points;
+    const p2Points = this.player2().points;
+
+    if (p1Points === p2Points) return { name: "It's a tie", points: p1Points };
+    if (p1Points > p2Points) return this.player1();
+
+    return this.player2();
   }
 
   incrementRound() {
@@ -30,13 +40,7 @@ class Game {
     const player1Choice = p1Choice.toLowerCase();
     const player2Choice =
       this.gameType === "multi" ? p2Choice.toLowerCase() : this.botChoice();
-    // console.log(
-    //   "player1Choice: ",
-    //   player1Choice,
-    //   `\n`,
-    //   "player2Choice: ",
-    //   player2Choice
-    // );
+
     if (player1Choice === player2Choice) return;
 
     if (player1Choice === "rock") {
