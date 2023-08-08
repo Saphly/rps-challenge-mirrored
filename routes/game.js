@@ -49,7 +49,7 @@ router.post("/end", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  req.query.player === "one" ? res.render("single") : res.render("multi");
+  req.query.player === "single" ? res.render("single") : res.render("multi");
 });
 
 export default router;
