@@ -12,6 +12,7 @@ app.use("/public", express.static("public"));
 
 app.use("/game", gameRouter);
 app.use("/", indexRouter);
+app.use((req, res) => res.status(404).send(`Page not found`));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
