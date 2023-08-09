@@ -37,7 +37,7 @@ router.post("/play-round", (req, res) => {
   });
 });
 
-router.post("/end", (req, res) => {
+router.get("/end", (req, res) => {
   const game = req.app.locals.game;
 
   const winner = game.winner();
