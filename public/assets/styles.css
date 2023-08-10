@@ -18,6 +18,11 @@
   padding: 0px 2em;
 }
 
+.play-container img,
+label.rps-choice-img img {
+  width: 40px;
+}
+
 .p1-container {
   width: 50%;
   border-right: solid 1px #2c5777;
@@ -33,10 +38,6 @@ input {
 
 input:focus {
   background-color: #ffccd9;
-}
-
-label.rps-choice-img img {
-  width: 3em;
 }
 
 /* CSS from https://getcssscan.com/css-buttons-examples */

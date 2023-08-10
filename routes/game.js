@@ -21,12 +21,26 @@ router.post("/start", (req, res) => {
   });
 });
 
+// TODO: p1 press submit =>
+// TODO: show what bot chose and the result =>
+// TODO: increment round && increment point to winner(if any)
+
 router.post("/play-round", (req, res) => {
   const game = req.app.locals.game;
 
   game.gameType === "single"
     ? game.play(req.body.p1Choice)
     : game.play(req.body.p1Choice, req.body.p2Choice);
+
+  res.render("roundResult", {
+    round: game.round,
+    players: game.players,
+    gameType: game.gameType,
+  });
+});
+
+router.get("/next-round", (req, res) => {
+  const game = req.app.locals.game;
 
   game.incrementRound();
 

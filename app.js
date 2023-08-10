@@ -21,6 +21,3 @@ app.listen(port, () => {
 export default app;
 
 // TODO: FORMAT game.js LOGIC
-
-// TODO: change the /game/end to GET instead of POST
-// done

@@ -33,14 +33,10 @@ class Game {
   botChoice() {
     const randIndex = Math.floor(Math.random() * 5);
 
-    return this.choices[randIndex];
+    return this.choices[randIndex].toLowerCase();
   }
 
-  play(p1Choice, p2Choice) {
-    const player1Choice = p1Choice.toLowerCase();
-    const player2Choice =
-      this.gameType === "multi" ? p2Choice.toLowerCase() : this.botChoice();
-
+  roundIncrementPoint(player1Choice, player2Choice) {
     if (player1Choice === player2Choice) return;
 
     if (player1Choice === "rock") {
@@ -86,6 +82,17 @@ class Game {
 
       this.player2().addPoint();
     }
+  }
+
+  play(p1Choice, p2Choice) {
+    const player1Choice = p1Choice.toLowerCase();
+    const player2Choice =
+      this.gameType === "multi" ? p2Choice.toLowerCase() : this.botChoice();
+
+    this.player1().chose(player1Choice);
+    this.player2().chose(player2Choice);
+
+    this.roundIncrementPoint(player1Choice, player2Choice);
   }
 }
 
