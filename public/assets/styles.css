@@ -15,7 +15,8 @@
 
 .play-container {
   display: flex;
-  padding: 0px 2em;
+  padding: 0px 6em;
+  min-height: 20vh;
 }
 
 .play-container img,
@@ -83,4 +84,26 @@ button:active {
   background-color: #a0c7e4;
   box-shadow: none;
   color: #2c5777;
+}
+
+.end-button {
+  background-color: #ffe4cd;
+  border: 1px solid #f08080;
+  color: #800000;
+}
+
+.end-button:hover,
+.end-button:focus {
+  background-color: #fbceb1;
+  color: #9b111e;
+}
+
+.end-button:focus {
+  box-shadow: 0 0 0 4px rgba(132, 27, 45, 0.15);
+}
+
+.end-button:active {
+  background-color: #ffa089;
+  box-shadow: none;
+  color: #9b111e;
 }
