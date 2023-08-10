@@ -19,5 +19,3 @@ app.listen(port, () => {
 });
 
 export default app;
-
-// TODO: FORMAT game.js LOGIC

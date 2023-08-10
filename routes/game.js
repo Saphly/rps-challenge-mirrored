@@ -21,9 +21,9 @@ router.post("/start", (req, res) => {
   });
 });
 
-// TODO: p1 press submit =>
-// TODO: show what bot chose and the result =>
-// TODO: increment round && increment point to winner(if any)
+// p1 press submit =>
+// show what bot chose and the result =>
+// increment round && increment point to winner(if any)
 
 router.post("/play-round", (req, res) => {
   const game = req.app.locals.game;
