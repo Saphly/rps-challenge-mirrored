@@ -1,11 +1,20 @@
 import Player from "./player.js";
 
+const CHOICES = ["rock", "paper", "scissors", "spock", "lizard"];
+// e.g. rock beats scissors and lizard
+const RPS_LOGIC = {
+  rock: ["scissors", "lizard"],
+  paper: ["rock", "spock"],
+  scissors: ["paper", "lizard"],
+  spock: ["rock", "scissors"],
+  lizard: ["paper", "spock"],
+};
+
 class Game {
   setup(names, gameType, playerClass = Player) {
     this.gameType = gameType;
     this.round = 1;
     this.players = names.map((name) => new playerClass(name));
-    this.choices = ["rock", "paper", "scissors", "spock", "lizard"];
   }
 
   player1() {
@@ -31,57 +40,19 @@ class Game {
   }
 
   botChoice() {
-    const randIndex = Math.floor(Math.random() * 5);
+    const randIndex = Math.floor(Math.random() * CHOICES.length);
 
-    return this.choices[randIndex].toLowerCase();
+    return CHOICES[randIndex].toLowerCase();
   }
 
-  roundIncrementPoint(player1Choice, player2Choice) {
+  incrementWinnerPoint(player1Choice, player2Choice) {
     if (player1Choice === player2Choice) return;
 
-    if (player1Choice === "rock") {
-      if (player2Choice === "scissors" || player2Choice === "lizard") {
-        this.player1().addPoint();
-        return;
-      }
-      this.player2().addPoint();
+    if (RPS_LOGIC[player1Choice].includes(player2Choice)) {
+      this.player1().addPoint();
+      return;
     }
-
-    if (player1Choice === "paper") {
-      if (player2Choice === "rock" || player2Choice === "spock") {
-        this.player1().addPoint();
-        return;
-      }
-
-      this.player2().addPoint();
-    }
-
-    if (player1Choice === "scissors") {
-      if (player2Choice === "paper" || player2Choice === "lizard") {
-        this.player1().addPoint();
-        return;
-      }
-
-      this.player2().addPoint();
-    }
-
-    if (player1Choice === "spock") {
-      if (player2Choice === "rock" || player2Choice === "scissors") {
-        this.player1().addPoint();
-        return;
-      }
-
-      this.player2().addPoint();
-    }
-
-    if (player1Choice === "lizard") {
-      if (player2Choice === "paper" || player2Choice === "spock") {
-        this.player1().addPoint();
-        return;
-      }
-
-      this.player2().addPoint();
-    }
+    this.player2().addPoint();
   }
 
   play(p1Choice, p2Choice) {
@@ -92,7 +63,7 @@ class Game {
     this.player1().chose(player1Choice);
     this.player2().chose(player2Choice);
 
-    this.roundIncrementPoint(player1Choice, player2Choice);
+    this.incrementWinnerPoint(player1Choice, player2Choice);
   }
 }
 
