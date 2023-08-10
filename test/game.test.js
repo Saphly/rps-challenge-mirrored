@@ -164,5 +164,22 @@ describe("Game tests", () => {
       expect(res).to.have.status(200);
       expect(res.text).to.have.string("ward!");
     });
+
+    it("should not increment player points if the round was a tie", async () => {
+      expect(app.locals.game.players[0].points).to.equal(0);
+      expect(app.locals.game.players[1].points).to.equal(0);
+
+      res = await chai
+        .request(app)
+        .post(`${TESTPATH}/play-round`)
+        .type("form")
+        .send({
+          p1Choice: "rock",
+          p2Choice: "rock",
+        });
+
+      expect(app.locals.game.players[0].points).to.equal(0);
+      expect(app.locals.game.players[1].points).to.equal(0);
+    });
   });
 });
